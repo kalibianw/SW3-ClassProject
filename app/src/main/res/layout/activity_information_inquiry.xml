@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="LOGO"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toStartOf="@id/textView1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="정보전송조회"
+        app:layout_constraintBottom_toTopOf="@id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView1">
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:showDividers="beginning|end|middle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            tools:layout_editor_absoluteX="1dp">
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    android:id="@+id/textViewInRow1_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginTop="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="날짜" />
+
+                <TextView
+                    android:id="@+id/textViewInRow1_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginTop="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="제공기관" />
+
+                <TextView
+                    android:id="@+id/textViewInRow1_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="이용시간" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    android:id="@+id/textViewInRow2_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/textViewInRow2_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/textViewInRow2_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    android:id="@+id/textViewInRow3_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/textViewInRow3_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/textViewInRow3_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    android:id="@+id/textViewInRow4_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/textViewInRow4_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+
+                <TextView
+                    android:id="@+id/textViewInRow4_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="1sp"
+                    android:layout_marginBottom="1sp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
