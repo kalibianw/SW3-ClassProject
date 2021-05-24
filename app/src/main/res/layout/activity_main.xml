@@ -7,44 +7,14 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/mainPageLogo"
+        android:id="@+id/initPageLogoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="LOGO"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/informationInquiryButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/informationInquiryButton"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="정보전송내역 조회"
-        app:layout_constraintBottom_toTopOf="@id/notificationSettingButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainPageLogo" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/notificationSettingButton"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="알림 설정"
-        app:layout_constraintBottom_toTopOf="@+id/myInformationButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/informationInquiryButton" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/myInformationButton"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:text="내 정보&amp;고객센터"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notificationSettingButton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

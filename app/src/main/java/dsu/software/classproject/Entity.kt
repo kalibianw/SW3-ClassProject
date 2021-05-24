@@ -3,9 +3,15 @@ package dsu.software.classproject
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+@Entity(tableName = "user")
+data class UserEntity(
+    @PrimaryKey val userId: String,
+    val userPw: String
+)
+
 @Entity(tableName = "beacon")
 data class BeaconEntity(
-    @PrimaryKey val id: Int,
+    @PrimaryKey val beaconId: Int,
     val location: String
 )
 

@@ -6,6 +6,18 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
+interface UserDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(userEntity: UserEntity)
+
+    @Query("SELECT userPw FROM user WHERE userId = :userId")
+    fun loginQuerying(userId: String): String
+
+    @Query("SELECT * FROM user")
+    fun getAllValues(): List<UserEntity>
+}
+
+@Dao
 interface VisitedDao {
     @Query("SELECT * FROM visited WHERE visitedUser = :visitedUser")
     fun getValues(visitedUser: String): List<VisitedEntity>
@@ -26,11 +38,11 @@ interface VisitedDao {
 @Dao
 interface BeaconDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(BeaconEntity: BeaconEntity)
+    fun insert(beaconEntity: BeaconEntity)
 
     @Query("SELECT * FROM beacon")
     fun getAllValues(): List<BeaconEntity>
 
-    @Query("SELECT * FROM beacon WHERE id = :id")
-    fun getValues(id: Int): List<BeaconEntity>
+    @Query("SELECT * FROM beacon WHERE beaconId = :beaconId")
+    fun getValues(beaconId: Int): List<BeaconEntity>
 }
