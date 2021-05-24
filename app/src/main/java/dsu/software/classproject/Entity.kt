@@ -6,7 +6,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "user")
 data class UserEntity(
     @PrimaryKey val userId: String,
-    val userPw: String
+    val userPw: String,
+    val userName: String,
+    val userBirthday: String,
+    val userHome: String,
 )
 
 @Entity(tableName = "beacon")

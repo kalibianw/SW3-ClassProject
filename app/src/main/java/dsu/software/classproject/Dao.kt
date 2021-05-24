@@ -15,6 +15,9 @@ interface UserDao {
 
     @Query("SELECT * FROM user")
     fun getAllValues(): List<UserEntity>
+
+//    @Query("SELECT userId FROM user")
+//    fun getAllIds(): List<UserEntity>
 }
 
 @Dao

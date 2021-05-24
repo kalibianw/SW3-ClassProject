@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
 class InitUser(val context: Context) : Thread() {
     override fun run() {
         Log.d("Start Notification", "Start InitUser")
-        val user = UserEntity("010-1111-1111", "Pw01")
+        val user = UserEntity("010-1111-1111", "Pw01", "User01", "000101", "Seoul")
         UserDatabase.getInstance(context)!!.getUserDao().insert(user)
 
-        val user2 = UserEntity("010-2222-2222", "Pw02")
+        val user2 = UserEntity("010-2222-2222", "Pw02", "User02", "000202", "Busan")
         UserDatabase.getInstance(context)!!.getUserDao().insert(user2)
     }
 }

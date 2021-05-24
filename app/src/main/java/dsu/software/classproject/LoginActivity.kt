@@ -17,8 +17,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         Log.d("Start Notification", "Start LoginActivity")
 
-        val loginBtn = findViewById<Button>(R.id.login_btn)
-        val joinBtn = findViewById<Button>(R.id.join_btn)
+        val loginBtn = findViewById<Button>(R.id.loginBtn)
+        val registerBtn = findViewById<Button>(R.id.registerBtn)
         val pref = getSharedPreferences("user_details", MODE_PRIVATE)
         val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
         if (pref.contains("userId") && pref.contains("userPw")) {
@@ -44,10 +44,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        joinBtn.setOnClickListener {
-            Log.d("Action Notification", "Join button clicked.")
-            val joinActivityIntent = Intent(this, JoinActivity::class.java)
-            startActivity(joinActivityIntent)
+        registerBtn.setOnClickListener {
+            Log.d("Action Notification", "Register button clicked.")
+            val registerActivityIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(registerActivityIntent)
         }
     }
 }

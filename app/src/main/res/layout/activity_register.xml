@@ -10,52 +10,73 @@
         android:layout_height="wrap_content"
         android:contentDescription="LOGO"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@id/userId"
+        app:layout_constraintBottom_toTopOf="@id/userName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/userId"
-        android:layout_width="200sp"
+        android:id="@+id/userName"
+        android:layout_width="180sp"
         android:layout_height="wrap_content"
-        android:hint="전화번호"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@id/userPw"
+        android:hint="이름"
+        app:layout_constraintBottom_toTopOf="@id/userBirthday"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainPageLogo" />
 
     <EditText
+        android:id="@+id/userBirthday"
+        android:layout_width="180sp"
+        android:layout_height="wrap_content"
+        android:hint="주민등록번호 앞자리"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@id/userHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userName" />
+
+    <EditText
+        android:id="@+id/userHome"
+        android:layout_width="180sp"
+        android:layout_height="wrap_content"
+        android:hint="거주지"
+        app:layout_constraintBottom_toTopOf="@id/userId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userBirthday" />
+
+    <EditText
+        android:id="@+id/userId"
+        android:layout_width="180sp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="전화번호"
+        app:layout_constraintBottom_toTopOf="@id/userPw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userHome" />
+
+    <EditText
         android:id="@+id/userPw"
-        android:layout_width="200sp"
+        android:layout_width="180sp"
         android:layout_height="wrap_content"
         android:hint="비밀번호"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@id/loginBtn"
+        app:layout_constraintBottom_toTopOf="@id/registerBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userId" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/loginBtn"
-        android:layout_width="100sp"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        app:layout_constraintBottom_toTopOf="@id/registerBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/userPw" />
-
-    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/registerBtn"
-        android:layout_width="100sp"
+        android:layout_width="250sp"
         android:layout_height="wrap_content"
-        android:text="회원가입"
+        android:text="코드파인 이용시작"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginBtn" />
+        app:layout_constraintTop_toBottomOf="@id/userPw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
