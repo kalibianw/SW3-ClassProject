@@ -27,8 +27,8 @@ class RegisterActivity : AppCompatActivity() {
             val userId = findViewById<EditText>(R.id.userId)
             val userPw = findViewById<EditText>(R.id.userPw)
 
-            val pref = getSharedPreferences("user_details", MODE_PRIVATE)
-            val editor = pref.edit()
+            val userPref = getSharedPreferences("user_details", MODE_PRIVATE)
+            val editor = userPref.edit()
             val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
 
             if (userName.text.toString().isEmpty()) {
@@ -57,16 +57,16 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val addUser = AddUser(
+            AddUser(
                 applicationContext,
                 userName.text.toString(),
                 userBirthday.text.toString(),
                 userHome.text.toString(),
                 userId.text.toString(),
                 userPw.text.toString()
-            )
+            ).start()
 
-            addUser.start()
+            Thread.sleep(300)
             if (duplicateIdStatus == 1) {
                 Toast.makeText(this, "아이디(전화번호)가 중복됩니다.", Toast.LENGTH_SHORT).show()
             } else {

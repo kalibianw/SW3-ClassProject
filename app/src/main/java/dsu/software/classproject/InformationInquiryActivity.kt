@@ -16,35 +16,12 @@ class InformationInquiryActivity : AppCompatActivity() {
 
         val tableLayout1 = findViewById<TableLayout>(R.id.tableLayout1)
 
-        val addVisited = AddVisited(
+        val userPref = getSharedPreferences("user_details", MODE_PRIVATE)
+        GetVisited(
             applicationContext,
-            3,
-            "010-2222-2222",
-            "2021-01-02",
-            3,
-            "03:00"
-        )
-        addVisited.start()
-
-        Thread.sleep(500)
-
-        val getVisited = GetVisited(applicationContext, "010-1111-1111", tableLayout1)
-        getVisited.start()
-    }
-}
-
-class AddVisited(
-    val context: Context,
-    val idx: Int,
-    val visitedUser: String,
-    val visitedDate: String,
-    val visitedLoc: Int,
-    val visitedTime: String
-) : Thread() {
-    override fun run() {
-        Log.d("Start Notification", "Start AddVisited")
-        val visited = VisitedEntity(idx, visitedUser, visitedDate, visitedLoc, visitedTime)
-        VisitedDatabase.getInstance(context)!!.getVisitedDao().insert(visited)
+            userPref.getString("userId", String()).toString(),
+            tableLayout1
+        ).start()
     }
 }
 
@@ -56,7 +33,8 @@ class AddBeacon(val context: Context, val beaconId: Int, val location: String) :
     }
 }
 
-class GetVisited(val context: Context, val visitedUser: String, val tableLayout1: TableLayout) : Thread() {
+class GetVisited(val context: Context, val visitedUser: String, val tableLayout1: TableLayout) :
+    Thread() {
     override fun run() {
         Log.d("Start Notification", "Start GetVisited")
 
@@ -71,7 +49,8 @@ class GetVisited(val context: Context, val visitedUser: String, val tableLayout1
             textViewDate.text = item.visitedDate
 
             val textViewLoc = row.getChildAt(1) as TextView
-            val beacon = BeaconDatabase.getInstance(context)!!.getBeaconDao().getValues(item.visitedLoc)
+            val beacon =
+                BeaconDatabase.getInstance(context)!!.getBeaconDao().getValues(item.visitedLoc)
             Log.d("Value", "beacon: ${beacon}")
             textViewLoc.text = beacon[0].location
 

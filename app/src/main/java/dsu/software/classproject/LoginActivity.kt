@@ -19,9 +19,9 @@ class LoginActivity : AppCompatActivity() {
 
         val loginBtn = findViewById<Button>(R.id.loginBtn)
         val registerBtn = findViewById<Button>(R.id.registerBtn)
-        val pref = getSharedPreferences("user_details", MODE_PRIVATE)
+        val userPref = getSharedPreferences("user_details", MODE_PRIVATE)
         val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
-        if (pref.contains("userId") && pref.contains("userPw")) {
+        if (userPref.contains("userId") && userPref.contains("userPw")) {
             startActivity(mainMenuActivityIntent)
         }
 
@@ -30,11 +30,10 @@ class LoginActivity : AppCompatActivity() {
             val userPw = findViewById<EditText>(R.id.userPw).text.toString()
             Log.d("Value", "userId: ${userId} userPw: ${userPw}")
             Log.d("Action Notification", "Login button clicked.")
-            val loginThread = GetAccount(applicationContext, userId, userPw)
-            loginThread.start()
+            GetAccount(applicationContext, userId, userPw).start()
             Thread.sleep(300)
             if (loginStatus == 1) {
-                val editor = pref.edit()
+                val editor = userPref.edit()
                 editor.putString("userId", userId)
                 editor.putString("userPw", userPw)
                 editor.apply()

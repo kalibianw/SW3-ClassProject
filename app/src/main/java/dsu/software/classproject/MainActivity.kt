@@ -12,35 +12,35 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.d("Start Notification", "Start MainActivity")
 
-        val initUser = InitUser(applicationContext)
-        initUser.start()
-        val initVisited = InitVisited(applicationContext)
-        initVisited.start()
-        val initBeacon = InitBeacon(applicationContext)
-        initBeacon.start()
+        InitUser(applicationContext).start()
+        InitVisited(applicationContext).start()
+        InitBeacon(applicationContext).start()
 
         Thread.sleep(300)
 
-        val getAllUser = GetAllUser(applicationContext)
-        getAllUser.start()
-        val getAllVisited = GetAllVisited(applicationContext)
-        getAllVisited.start()
-        val getAllBeacon = GetAllBeacon(applicationContext)
-        getAllBeacon.start()
+        GetAllUser(applicationContext).start()
+        GetAllVisited(applicationContext).start()
+        GetAllBeacon(applicationContext).start()
 
-        val loginActivityIntent = Intent(this, LoginActivity::class.java)
-        Log.d("Action Notification", "Init page logo button clicked.")
-        startActivity(loginActivityIntent)
+        val userPref = getSharedPreferences("user_details", MODE_PRIVATE)
+        if (userPref.contains("userId") && userPref.contains("userPw")) {
+            val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
+            startActivity(mainMenuActivityIntent)
+        } else {
+            val loginActivityIntent = Intent(this, LoginActivity::class.java)
+            Log.d("Action Notification", "Init page logo button clicked.")
+            startActivity(loginActivityIntent)
+        }
     }
 }
 
 class InitUser(val context: Context) : Thread() {
     override fun run() {
         Log.d("Start Notification", "Start InitUser")
-        val user = UserEntity("010-1111-1111", "Pw01", "User01", "000101", "Seoul")
+        val user = UserEntity("01011111111", "Pw01", "User01", "000101", "Seoul")
         UserDatabase.getInstance(context)!!.getUserDao().insert(user)
 
-        val user2 = UserEntity("010-2222-2222", "Pw02", "User02", "000202", "Busan")
+        val user2 = UserEntity("01022222222", "Pw02", "User02", "000202", "Busan")
         UserDatabase.getInstance(context)!!.getUserDao().insert(user2)
     }
 }
@@ -48,13 +48,13 @@ class InitUser(val context: Context) : Thread() {
 class InitVisited(val context: Context) : Thread() {
     override fun run() {
         Log.d("Start Notification", "Start InitVisited")
-        val visited = VisitedEntity(0, "010-1111-1111", "2021-01-01", 0, "00:00")
+        val visited = VisitedEntity(0, "01011111111", "2021-01-01", 0, "00:00")
         VisitedDatabase.getInstance(context)!!.getVisitedDao().insert(visited)
 
-        val visited2 = VisitedEntity(1, "010-1111-1111", "2021-01-02", 1, "01:00")
+        val visited2 = VisitedEntity(1, "01011111111", "2021-01-02", 1, "01:00")
         VisitedDatabase.getInstance(context)!!.getVisitedDao().insert(visited2)
 
-        val visited3 = VisitedEntity(2, "010-2222-2222", "2021-01-01", 2, "02:00")
+        val visited3 = VisitedEntity(2, "01022222222", "2021-01-01", 2, "02:00")
         VisitedDatabase.getInstance(context)!!.getVisitedDao().insert(visited3)
     }
 }
