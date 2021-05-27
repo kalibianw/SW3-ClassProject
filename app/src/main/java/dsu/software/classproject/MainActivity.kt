@@ -22,8 +22,9 @@ class MainActivity : AppCompatActivity() {
         GetAllVisited(applicationContext).start()
         GetAllBeacon(applicationContext).start()
 
+        val setPref = getSharedPreferences("app_settings", MODE_PRIVATE)
         val userPref = getSharedPreferences("user_details", MODE_PRIVATE)
-        if (userPref.contains("userId") && userPref.contains("userPw")) {
+        if (userPref.contains("userId") && userPref.contains("userPw") && setPref.getBoolean("auto_login", false)) {
             val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
             startActivity(mainMenuActivityIntent)
         } else {
@@ -37,10 +38,10 @@ class MainActivity : AppCompatActivity() {
 class InitUser(val context: Context) : Thread() {
     override fun run() {
         Log.d("Start Notification", "Start InitUser")
-        val user = UserEntity("01011111111", "Pw01", "User01", "000101", "Seoul")
+        val user = UserEntity("01011111111", "Pw01", "User01", "000101", "서울특별시")
         UserDatabase.getInstance(context)!!.getUserDao().insert(user)
 
-        val user2 = UserEntity("01022222222", "Pw02", "User02", "000202", "Busan")
+        val user2 = UserEntity("01022222222", "Pw02", "User02", "000202", "부산광역시")
         UserDatabase.getInstance(context)!!.getUserDao().insert(user2)
     }
 }

@@ -26,7 +26,10 @@ class MainMenuActivity : AppCompatActivity() {
                 2,
                 "03:00"
             ).start()
-            Log.d("Action Notification", "Add Visited for user: ${userPref.getString("userId", String()).toString()}")
+            Log.d(
+                "Action Notification",
+                "Add Visited for user: ${userPref.getString("userId", String()).toString()}"
+            )
             Thread.sleep(300)
             GetAllVisited(applicationContext).start()
         }
@@ -38,9 +41,11 @@ class MainMenuActivity : AppCompatActivity() {
             startActivity(informationInquiryActivityIntent)
         }
 
+        val notificationSettingIntent = Intent(this, NotificationSettingActivity::class.java)
         val notificationSettingButton = findViewById<Button>(R.id.notificationSettingButton)
         notificationSettingButton.setOnClickListener {
             Log.d("Action Notification", "Notification setting button clicked.")
+            startActivity(notificationSettingIntent)
         }
 
         val myInformationButton = findViewById<Button>(R.id.myInformationButton)

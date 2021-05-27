@@ -1,9 +1,11 @@
 package dsu.software.classproject
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -14,7 +16,9 @@ class InformationInquiryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_information_inquiry)
         Log.d("Start Notification", "Start InformationInquiryActivity")
 
-        val tableLayout1 = findViewById<TableLayout>(R.id.tableLayout1)
+        val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
+
+        val tableLayout1 = findViewById<TableLayout>(R.id.informationInquiryTable)
 
         val userPref = getSharedPreferences("user_details", MODE_PRIVATE)
         GetVisited(
@@ -22,6 +26,12 @@ class InformationInquiryActivity : AppCompatActivity() {
             userPref.getString("userId", String()).toString(),
             tableLayout1
         ).start()
+
+        val informationInquiryButton = findViewById<Button>(R.id.informationInquiryConfirmButton)
+        informationInquiryButton.setOnClickListener {
+            Log.d("Action Notification", "Information inquiry button clicked.")
+            startActivity(mainMenuActivityIntent)
+        }
     }
 }
 
