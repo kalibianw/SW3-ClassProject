@@ -1,5 +1,6 @@
 package dsu.software.classproject
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -22,6 +23,13 @@ class MyInformationActivity : AppCompatActivity() {
         }
         serviceCenterButton.setOnClickListener {
             Log.d("Action Notification", "Service center button clicked.")
+        }
+
+        val confirmButton = findViewById<Button>(R.id.confirmButton)
+        val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
+        confirmButton.setOnClickListener {
+            Log.d("Action Notification", "Confirm button clicked.")
+            startActivity(mainMenuActivityIntent)
         }
     }
 }

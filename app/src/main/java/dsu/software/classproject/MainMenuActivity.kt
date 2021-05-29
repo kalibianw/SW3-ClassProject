@@ -48,9 +48,11 @@ class MainMenuActivity : AppCompatActivity() {
             startActivity(notificationSettingIntent)
         }
 
+        val myInformationIntent = Intent(this, MyInformationActivity::class.java)
         val myInformationButton = findViewById<Button>(R.id.myInformationButton)
         myInformationButton.setOnClickListener {
             Log.d("Action Notification", "My information button clicked.")
+            startActivity(myInformationIntent)
         }
 
         val logoutButton = findViewById<Button>(R.id.logoutButton)
