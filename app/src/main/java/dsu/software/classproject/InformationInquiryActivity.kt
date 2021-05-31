@@ -35,14 +35,6 @@ class InformationInquiryActivity : AppCompatActivity() {
     }
 }
 
-class AddBeacon(val context: Context, val beaconId: Int, val location: String) : Thread() {
-    override fun run() {
-        Log.d("Start Notification", "Start AddBeacon")
-        val Beacon = BeaconEntity(beaconId, location)
-        BeaconDatabase.getInstance(context)!!.getBeaconDao().insert(Beacon)
-    }
-}
-
 class GetVisited(val context: Context, val visitedUser: String, val tableLayout1: TableLayout) :
     Thread() {
     override fun run() {
