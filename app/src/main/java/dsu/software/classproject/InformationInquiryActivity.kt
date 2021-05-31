@@ -27,8 +27,8 @@ class InformationInquiryActivity : AppCompatActivity() {
             tableLayout1
         ).start()
 
-        val informationInquiryButton = findViewById<Button>(R.id.informationInquiryConfirmButton)
-        informationInquiryButton.setOnClickListener {
+        val confirmButton = findViewById<Button>(R.id.informationInquiryConfirmButton)
+        confirmButton.setOnClickListener {
             Log.d("Action Notification", "Information inquiry button clicked.")
             startActivity(mainMenuActivityIntent)
         }
