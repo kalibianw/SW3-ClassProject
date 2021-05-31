@@ -24,11 +24,6 @@ class LoginActivity : AppCompatActivity() {
         val setPref = getSharedPreferences("app_settings", MODE_PRIVATE)
 
         val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
-        if (setPref.getBoolean("auto_login", false)) {
-            if (userPref.contains("userId") && userPref.contains("userPw")) {
-                startActivity(mainMenuActivityIntent)
-            }
-        }
 
         loginBtn.setOnClickListener {
             val userId = findViewById<EditText>(R.id.userId).text.toString()
