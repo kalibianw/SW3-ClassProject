@@ -25,7 +25,7 @@ class MyInformationActivity : AppCompatActivity() {
             Log.d("Action Notification", "Service center button clicked.")
         }
 
-        val confirmButton = findViewById<Button>(R.id.confirmButton)
+        val confirmButton = findViewById<Button>(R.id.confirm_button)
         val mainMenuActivityIntent = Intent(this, MainMenuActivity::class.java)
         confirmButton.setOnClickListener {
             Log.d("Action Notification", "Confirm button clicked.")
